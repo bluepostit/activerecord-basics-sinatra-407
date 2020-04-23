@@ -1,0 +1,28 @@
+<h1>Our Restaurants</h1>
+<p>These all made the cut</p>
+
+<% if 1 > 0 %>
+  <p>All is sane</p>
+<% else %>
+  <p>Something is very wrong with reality</p>
+<% end %>
+
+<%= Time.now %>
+
+<hr>
+
+<form method="post" action="/restaurants">
+  <label for="name">Name:</label>
+  <input name="name" type="text" />
+  <label for="address">Address</label>
+  <input type="text" name="address" />
+  <input type="submit" value="Add">
+</form>
+
+<ul>
+  <% @restaurants.each do |restaurant| %>
+    <li>
+      <a href="/restaurants/<%= restaurant.id %>"><%= restaurant.name %></a>
+      </li>
+  <% end %>
+</ul>
